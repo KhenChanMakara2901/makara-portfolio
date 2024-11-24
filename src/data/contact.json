@@ -1,0 +1,19 @@
+{
+  "contactInfo": [
+    {
+      "icon": "FaMapMarkerAlt",
+      "label": "Address",
+      "value": "#69, CPC village, Sangkat Teklaa, Khan Sen Sok, Phnom Penh, the Kingdom of Cambodia"
+    },
+    {
+      "icon": "AiOutlineMail",
+      "label": "Email",
+      "value": "khenchannmakara@gmail.com"
+    },
+    {
+      "icon": "AiOutlinePhone",
+      "label": "Phone",
+      "value": "+855 87 966 384 | 71 325 9328"
+    }
+  ]
+}

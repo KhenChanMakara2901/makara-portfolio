@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { FaGithub, FaSun, FaMoon } from "react-icons/fa";
 import { SiVercel } from "react-icons/si";
 import navigation from "@/navigation.json";
+import Logo from "@/public/Logo.png";
+import Image from "next/image";
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -37,11 +39,18 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-lg">
+    <nav className="sticky top-0 z-50  bg-white dark:bg-dark shadow-lg">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="text-2xl font-bold text-transparent  bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
-          <Link href="/" className="hover:opacity-80 transition-opacity">
-            CHANNMAKARA
+        <div className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
+          <Link href="/" className="hover:scale-110">
+            <Image
+              className="hover:scale-110"
+              src={Logo}
+              width={50}
+              height={50}
+              quality={100}
+              alt="Logo"
+            />
           </Link>
         </div>
 
@@ -77,7 +86,7 @@ const Navigation = () => {
 
           <li>
             <Link
-              href="https://github.com/your-profile"
+              href="https://github.com/KhenChanMakara2901"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white transition-all"
@@ -173,7 +182,7 @@ const Navigation = () => {
 
           <li>
             <Link
-              href="https://github.com/your-profile"
+              href="https://github.com/KhenChanMakara2901"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2 px-4 py-2 text-base font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white transition-all"

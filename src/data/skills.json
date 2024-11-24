@@ -2,51 +2,61 @@
   {
     "id": 1,
     "name": "HTML",
-    "image": "/Skills/HTML.png"
+    "image": "/Skills/HTML.png",
+    "proficiency": 70
   },
   {
     "id": 2,
     "name": "CSS",
-    "image": "/Skills/CSS.png"
+    "image": "/Skills/CSS.png",
+    "proficiency": 60
   },
   {
     "id": 3,
     "name": "BOOTSTRAP",
-    "image": "/Skills/BOOTSTRAP.png"
+    "image": "/Skills/BOOTSTRAP.png",
+    "proficiency": 60
   },
   {
     "id": 4,
     "name": "JAVASCRIPT",
-    "image": "/Skills/JAVASCRIPT.png"
+    "image": "/Skills/JAVASCRIPT.png",
+    "proficiency": 40
   },
   {
     "id": 5,
     "name": "REACT.JS",
-    "image": "/Skills/REACT.png"
+    "image": "/Skills/REACT.png",
+    "proficiency": 70
   },
   {
     "id": 6,
     "name": "NEXT.JS",
-    "image": "/Skills/NEXT.png"
+    "image": "/Skills/NEXT.png",
+    "proficiency": 70
   },
   {
     "id": 7,
     "name": "TAILWIND CSS",
-    "image": "/Skills/TAILWIND.png"
+    "image": "/Skills/TAILWIND.png",
+    "proficiency": 80
   },
   {
     "id": 8,
     "name": "NODE.JS",
-    "image": "/Skills/NODE.png"
+    "image": "/Skills/NODE.png",
+    "proficiency": 40
   },
   {
     "id": 9,
     "name": "MY SQL",
-    "image": "/Skills/MYSQL.png"
+    "image": "/Skills/MYSQL.png",
+    "proficiency": 30
   },
   {
     "id": 10,
     "name": "GIT",
-    "image": "/Skills/GIT.png"
+    "image": "/Skills/GIT.png",
+    "proficiency": 50
   }
 ]

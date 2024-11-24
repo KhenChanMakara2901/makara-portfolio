@@ -1,0 +1,64 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "KHMERCODEACADEMY {V1}",
+      "description": "This is a description for Project One. A brief overview of the work done and technologies used.",
+      "image": "/Project/Project1.png",
+      "githubLink": "https://github.com/user/project-one",
+      "liveLink": "https://project-one.example.com",
+      "completion": 75,
+      "technologies": ["Next.js14", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "id": 2,
+      "title": "PLAN B BURGER WITH UI",
+      "description": "This is a description for Project Two. A brief overview of the work done and technologies used.",
+      "image": "/Project/Project2.png",
+      "githubLink": "https://github.com/user/project-two",
+      "liveLink": "https://project-two.example.com",
+      "completion": 75,
+      "technologies": ["Next.js14", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "id": 3,
+      "title": "STATIC ECOMMERCE WITH DATA",
+      "description": "This is a description for Project Three. A brief overview of the work done and technologies used.",
+      "image": "/Project/Project3.png",
+      "githubLink": "https://github.com/user/project-three",
+      "liveLink": "https://project-three.example.com",
+      "completion": 75,
+      "technologies": ["Next.js14", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "id": 4,
+      "title": "ECOMMERCE WEBSITE WITH CART",
+      "description": "This is a description for Project Three. A brief overview of the work done and technologies used.",
+      "image": "/Project/Project4.png",
+      "githubLink": "https://github.com/user/project-three",
+      "liveLink": "https://project-three.example.com",
+      "completion": 75,
+      "technologies": ["Next.js14", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "id": 5,
+      "title": "ECOMMERCE WEBSITE WITH FAKE.JSON",
+      "description": "This is a description for Project Three. A brief overview of the work done and technologies used.",
+      "image": "/Project/Project5.png",
+      "githubLink": "https://github.com/user/project-three",
+      "liveLink": "https://project-three.example.com",
+      "completion": 75,
+      "technologies": ["Next.js14", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "id": 6,
+      "title": "KHMERCODEACADEMY{FULLVERSION}",
+      "description": "This is a description for Project Three. A brief overview of the work done and technologies used.",
+      "image": "/Project/Project6.png",
+      "githubLink": "https://github.com/user/project-three",
+      "liveLink": "https://project-three.example.com",
+      "completion": 100,
+      "technologies": ["Next.js14", "TypeScript", "Tailwind CSS"]
+    }
+  ]
+}

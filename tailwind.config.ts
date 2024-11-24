@@ -10,8 +10,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        dark: {
+          DEFAULT: "#121212", // Replace with your preferred dark color
+        },
       },
     },
   },

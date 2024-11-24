@@ -1,12 +1,38 @@
-import { FC } from "react";
+"use client";
+import { FC, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import skillsData from "../data/skills.json";
 
 const Skills: FC = () => {
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const currentSection = sectionRef.current;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (currentSection) {
+      observer.observe(currentSection);
+    }
+
+    return () => {
+      if (currentSection) {
+        observer.unobserve(currentSection);
+      }
+    };
+  }, []);
+
   return (
     <section
       id="Skills"
-      className="py-16 bg-gradient-to-b from-gray-50 to-gray-200 dark:from-gray-800 dark:to-gray-900 text-gray-900 dark:text-white"
+      ref={sectionRef}
+      className="py-16 bg-white dark:bg-dark text-gray-900 dark:text-white"
     >
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-extrabold text-center mb-12">
@@ -30,6 +56,19 @@ const Skills: FC = () => {
                 />
               </div>
               <p className="text-lg font-medium">{skill.name}</p>
+              <div className="w-full h-2 bg-gray-200 rounded-full mt-4">
+                <div
+                  className={`h-full rounded-full transition-all duration-1000 ease-in-out ${
+                    inView ? "scale-x-100" : "scale-x-0"
+                  }`}
+                  style={{
+                    width: `${skill.proficiency}%`,
+                    background: "linear-gradient(to right, #6ee7b7, #3b82f6)",
+                  }}
+                ></div>
+              </div>
+              <p className="text-sm mt-2">{skill.proficiency}%</p>
+
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-0 group-hover:opacity-50 transition-opacity rounded-lg"></div>
             </div>
           ))}
