@@ -1,19 +1,9 @@
 "use client";
 import Lottie from "lottie-react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Spin from "@/public/Spin.json";
 
 export default function Effect() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    <div>Loading...</div>;
-  }
-
   return (
     <div className="bg-while dark:bg-dark flex flex-col items-center justify-center min-h-screen">
       <div className="w-1/3 md:w-1/4">
