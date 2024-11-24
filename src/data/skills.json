@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "HTML",
+    "image": "/Skills/HTML.png"
+  },
+  {
+    "id": 2,
+    "name": "CSS",
+    "image": "/Skills/CSS.png"
+  },
+  {
+    "id": 3,
+    "name": "BOOTSTRAP",
+    "image": "/Skills/BOOTSTRAP.png"
+  },
+  {
+    "id": 4,
+    "name": "JAVASCRIPT",
+    "image": "/Skills/JAVASCRIPT.png"
+  },
+  {
+    "id": 5,
+    "name": "REACT.JS",
+    "image": "/Skills/REACT.png"
+  },
+  {
+    "id": 6,
+    "name": "NEXT.JS",
+    "image": "/Skills/NEXT.png"
+  },
+  {
+    "id": 7,
+    "name": "TAILWIND CSS",
+    "image": "/Skills/TAILWIND.png"
+  },
+  {
+    "id": 8,
+    "name": "NODE.JS",
+    "image": "/Skills/NODE.png"
+  },
+  {
+    "id": 9,
+    "name": "MY SQL",
+    "image": "/Skills/MYSQL.png"
+  },
+  {
+    "id": 10,
+    "name": "GIT",
+    "image": "/Skills/GIT.png"
+  }
+]
