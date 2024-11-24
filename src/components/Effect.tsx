@@ -11,7 +11,7 @@ export default function Effect() {
   }, []);
 
   if (!isClient) {
-    return null;
+    <div>Loading...</div>;
   }
 
   return (
