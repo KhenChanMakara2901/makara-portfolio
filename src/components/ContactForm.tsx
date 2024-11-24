@@ -13,13 +13,12 @@ const ContactForm = () => {
   return (
     <section
       id="contact"
-      className=" bg-white dark:bg-dark text-white py-16 px-6 lg:px-24"
+      className=" bg-white dark:bg-dark text-white py-28 px-6 lg:px-24"
     >
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
           CONNECT WITH ME
         </h2>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-8">
             {contactData.contactInfo.map((item, index) => {

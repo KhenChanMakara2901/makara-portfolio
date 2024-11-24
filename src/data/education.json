@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Royal University Of Phnom Penh",
+    "institution": "COMPUTER SECIENCE",
+    "date": "2021 - PRESENT",
+    "logo": "/Education/RUPP.png",
+    "tags": [
+      " Data structures and algorithms",
+      "C/C++",
+      "Object Oriented Programming",
+      "Database Systems",
+      "Computer Networks",
+      "Java Programming",
+      "Web Development",
+      "Software Engineering"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Khmer Code Academy",
+    "institution": "WEB DEVELOMENT",
+    "date": "Oct - May 2024",
+    "logo": "/Education/KCA.jpg",
+    "tags": [
+      "Front End Development",
+      "Next.js",
+      "React.js",
+      "Tailwind Css",
+      "BOOTSTRAP",
+      "JQUERY",
+      "JAVASCRIPT",
+      "CSS",
+      "HTML"
+    ]
+  }
+]

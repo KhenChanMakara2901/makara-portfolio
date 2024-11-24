@@ -61,7 +61,7 @@ const ProjectSection = () => {
 
     return () => {
       if (currentSection) {
-        observer.unobserve(currentSection); // Cleanup using the stored ref
+        observer.unobserve(currentSection);
       }
     };
   }, []);
@@ -69,11 +69,11 @@ const ProjectSection = () => {
   return (
     <div
       id="projects"
-      className="bg-white dark:bg-dark text-gray-900 dark:text-white py-16 px-6 lg:px-16"
+      className="bg-white dark:bg-dark text-gray-900 dark:text-white py-28 px-6 lg:px-16"
       ref={sectionRef}
     >
       <h2 className="text-4xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
-        PROJECTS
+        📚 PROJECTS 📚
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {visibleProjects.map((project) => (

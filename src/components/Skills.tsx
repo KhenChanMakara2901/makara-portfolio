@@ -32,12 +32,12 @@ const Skills: FC = () => {
     <section
       id="Skills"
       ref={sectionRef}
-      className="py-16 bg-white dark:bg-dark text-gray-900 dark:text-white"
+      className="py-28 bg-white dark:bg-dark text-gray-900 dark:text-white"
     >
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-extrabold text-center mb-12">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
-            SKILLS
+            🏆 SKILLS 🏆
           </span>
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">

@@ -10,7 +10,7 @@ import CountUp from "react-countup";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-white dark:bg-dark py-16">
+    <section id="Home" className="relative bg-white dark:bg-dark py-24">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center lg:justify-between gap-12">
           <div className="text-center lg:text-left max-w-lg">
