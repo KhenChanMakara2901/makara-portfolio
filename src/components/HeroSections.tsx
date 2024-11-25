@@ -31,13 +31,13 @@ export default function HeroSection() {
             <div className="mt-8 flex justify-center lg:justify-start gap-8  text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
               <div className="text-center">
                 <h3 className="text-4xl font-bold">
-                  <CountUp start={0} end={4} duration={4} />+ years
+                  <CountUp start={0} end={4} duration={4} /> years
                 </h3>
-                <p>Experience</p>
+                <p>Graduated 🎓</p>
               </div>
               <div className="text-center">
                 <h3 className="text-4xl font-bold">
-                  <CountUp start={0} end={10} duration={2} />+
+                  <CountUp start={0} end={20} duration={2} />+
                 </h3>
                 <p>Projects</p>
               </div>
