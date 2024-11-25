@@ -35,8 +35,7 @@ const ProjectSection = () => {
   };
 
   useEffect(() => {
-    const currentSection = sectionRef.current; // Store the ref value in a variable
-
+    const currentSection = sectionRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

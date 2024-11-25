@@ -59,6 +59,16 @@
       "liveLink": "https://project-three.example.com",
       "completion": 100,
       "technologies": ["Next.js14", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "id": 6,
+      "title": "CALCULATOR",
+      "description": "This is a description for Project Three. A brief overview of the work done and technologies used.",
+      "image": "/Project/Project7.png",
+      "githubLink": "https://github.com/user/project-three",
+      "liveLink": "https://project-three.example.com",
+      "completion": 100,
+      "technologies": ["HTML", "CSS/BOOTSTRAP", "JAVASCRIPT"]
     }
   ]
 }
