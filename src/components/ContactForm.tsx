@@ -1,7 +1,10 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import contactData from "@/src/data/contact.json";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const icons: Record<string, React.ElementType> = {
   FaMapMarkerAlt: FaMapMarkerAlt,
@@ -10,10 +13,14 @@ const icons: Record<string, React.ElementType> = {
 };
 
 const ContactForm = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <section
       id="contact"
-      className=" bg-white dark:bg-dark text-white py-28 px-6 lg:px-24"
+      className="bg-white dark:bg-dark text-white py-28 px-6 lg:px-24"
     >
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
@@ -26,6 +33,7 @@ const ContactForm = () => {
               return (
                 <div
                   key={index}
+                  data-aos="fade-up"
                   className="flex items-center space-x-4 bg-gray-800 p-4 rounded-lg shadow-lg hover:shadow-xl transition"
                 >
                   {IconComponent && (
@@ -38,6 +46,7 @@ const ContactForm = () => {
           </div>
 
           <form
+            data-aos="fade-up"
             className="bg-gray-800 p-10 rounded-lg shadow-lg space-y-8"
             method="POST"
           >

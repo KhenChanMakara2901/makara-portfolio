@@ -4,14 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import projectData from "@/src/data/projects.json";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ProjectSection = () => {
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [completed, setCompleted] = useState<{ [key: string]: number }>({});
   const sectionRef = useRef(null);
-
   const toggleProjects = () => setShowAllProjects((prev) => !prev);
-
   const visibleProjects = showAllProjects
     ? projectData.projects
     : projectData.projects.slice(0, 3);
@@ -35,6 +35,11 @@ const ProjectSection = () => {
   };
 
   useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+
     const currentSection = sectionRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
@@ -77,7 +82,8 @@ const ProjectSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         {visibleProjects.map((project) => (
           <div
-            key={project.id}
+            key={`${project.id}-${project.title}`}
+            data-aos="fade-up"
             className="relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl border-2 border-transparent hover:border-teal-500 transition duration-300"
           >
             <Image

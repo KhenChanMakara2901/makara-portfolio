@@ -1,8 +1,18 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import education from "@/src/data/education.json";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Education = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
     <section id="education" className="bg-white dark:bg-dark py-28">
       <div className="container mx-auto px-6">
@@ -13,6 +23,7 @@ const Education = () => {
           {education.map((item) => (
             <div
               key={item.id}
+              data-aos="fade-up"
               className="relative bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition duration-300"
             >
               <div className="absolute top-0 left-6 transform -translate-y-1/2">
