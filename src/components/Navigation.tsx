@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { FaGithub, FaSun, FaMoon } from "react-icons/fa";
 import { SiVercel } from "react-icons/si";
 import navigation from "@/navigation.json";
@@ -9,9 +8,9 @@ import Logo from "@/public/Logo.png";
 import Image from "next/image";
 
 const Navigation = () => {
-  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [activeId, setActiveId] = useState("");
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
@@ -29,6 +28,7 @@ const Navigation = () => {
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
 
+  // Handle smooth scrolling
   const handleScroll = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
     const element = document.getElementById(href.replace("#", ""));
@@ -38,8 +38,30 @@ const Navigation = () => {
     }
   };
 
+  // Observe sections for active link updates
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      { root: null, rootMargin: "0px", threshold: 0.5 }
+    );
+
+    // Observe each section
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
   return (
-    <nav className="sticky top-0 z-50  bg-white dark:bg-dark shadow-lg">
+    <nav className="sticky top-0 z-50 bg-white dark:bg-dark shadow-lg">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
           <Link href="/" className="hover:scale-110">
@@ -61,9 +83,9 @@ const Navigation = () => {
                 <a
                   href={item.href}
                   className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${
-                    pathname === item.href
-                      ? "bg-gray-700 text-white"
-                      : "text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white"
+                    activeId === item.href.replace("#", "")
+                      ? "text-indigo-500 underline"
+                      : "text-gray-600 dark:text-gray-300 hover:underline"
                   }`}
                   onClick={(e) => handleScroll(e, item.href)}
                 >
@@ -73,9 +95,9 @@ const Navigation = () => {
                 <Link
                   href={item.href}
                   className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${
-                    pathname === item.href
-                      ? "bg-gray-700 text-white"
-                      : "text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white"
+                    activeId === item.href
+                      ? "text-indigo-500 underline"
+                      : "text-gray-600 dark:text-gray-300 hover:underline"
                   }`}
                 >
                   {item.label}
@@ -89,7 +111,7 @@ const Navigation = () => {
               href="https://github.com/KhenChanMakara2901"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white transition-all"
+              className="flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:underline transition-all"
             >
               <FaGithub />
               <span>GitHub</span>
@@ -101,7 +123,7 @@ const Navigation = () => {
               href="https://vercel.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white transition-all"
+              className="flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:underline transition-all"
             >
               <SiVercel />
               <span>Vercel</span>
@@ -157,9 +179,9 @@ const Navigation = () => {
                 <a
                   href={item.href}
                   className={`block px-4 py-2 text-base font-medium rounded-md transition-all ${
-                    pathname === item.href
-                      ? "bg-gray-700 text-white"
-                      : "text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white"
+                    activeId === item.href.replace("#", "")
+                      ? "text-indigo-500 underline"
+                      : "text-gray-600 dark:text-gray-300 hover:underline"
                   }`}
                   onClick={(e) => handleScroll(e, item.href)}
                 >
@@ -169,9 +191,9 @@ const Navigation = () => {
                 <Link
                   href={item.href}
                   className={`block px-4 py-2 text-base font-medium rounded-md transition-all ${
-                    pathname === item.href
-                      ? "bg-gray-700 text-white"
-                      : "text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white"
+                    activeId === item.href
+                      ? "text-indigo-500 underline"
+                      : "text-gray-600 dark:text-gray-300 hover:underline"
                   }`}
                 >
                   {item.label}
@@ -185,7 +207,7 @@ const Navigation = () => {
               href="https://github.com/KhenChanMakara2901"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-4 py-2 text-base font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white transition-all"
+              className="flex items-center space-x-2 px-4 py-2 text-base font-medium rounded-md text-gray-600 dark:text-gray-300 hover:underline transition-all"
             >
               <FaGithub />
               <span>GitHub</span>
@@ -197,7 +219,7 @@ const Navigation = () => {
               href="https://vercel.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-4 py-2 text-base font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-700 hover:text-white transition-all"
+              className="flex items-center space-x-2 px-4 py-2 text-base font-medium rounded-md text-gray-600 dark:text-gray-300 hover:underline transition-all"
             >
               <SiVercel />
               <span>Vercel</span>
