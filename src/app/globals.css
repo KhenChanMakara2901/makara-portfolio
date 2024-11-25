@@ -27,24 +27,3 @@
   opacity: 0;
   transition: opacity 0.5s ease;
 }
-@layer utilities {
-  .lamp-effect {
-    position: relative;
-    display: inline-block;
-    color: #fff;
-    text-shadow: 0 0 5px #4ade80, 0 0 10px #3b82f6, 0 0 15px #4ade80;
-    animation: lamps 1.5s infinite alternate;
-  }
-
-  @keyframes lamps {
-    0% {
-      text-shadow: 0 0 5px #4ade80, 0 0 10px #3b82f6, 0 0 15px #4ade80;
-    }
-    50% {
-      text-shadow: 0 0 8px #4ade80, 0 0 16px #3b82f6, 0 0 24px #4ade80;
-    }
-    100% {
-      text-shadow: 0 0 5px #4ade80, 0 0 10px #3b82f6, 0 0 15px #4ade80;
-    }
-  }
-}

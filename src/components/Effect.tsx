@@ -10,7 +10,7 @@ export default function Effect() {
       <div className="w-1/3 md:w-1/4">
         <Lottie animationData={Spin} loop={true} className="w-full" />
       </div>
-      <h2 className="text-4xl font-serif text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+      <h2 className="text-4xl mt-3 font-serif text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
         THANK YOU
       </h2>
     </div>
