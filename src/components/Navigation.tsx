@@ -146,7 +146,7 @@ const Navigation = () => {
       </div>
 
       <div
-        className={`md:hidden bg-white dark:bg-gray-800 overflow-hidden transition-all ${
+        className={`md:hidden bg-white dark:bg-dark overflow-hidden transition-all ${
           isMobileMenuOpen ? "max-h-screen" : "max-h-0"
         }`}
       >
