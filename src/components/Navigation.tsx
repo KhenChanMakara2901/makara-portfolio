@@ -28,17 +28,15 @@ const Navigation = () => {
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
 
-  // Handle smooth scrolling
   const handleScroll = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
     const element = document.getElementById(href.replace("#", ""));
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
       setIsMobileMenuOpen(false);
     }
   };
 
-  // Observe sections for active link updates
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -51,7 +49,6 @@ const Navigation = () => {
       { root: null, rootMargin: "0px", threshold: 0.5 }
     );
 
-    // Observe each section
     const sections = document.querySelectorAll("section[id]");
     sections.forEach((section) => observer.observe(section));
 

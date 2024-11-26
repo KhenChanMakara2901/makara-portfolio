@@ -2,19 +2,12 @@
 import { FC, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import skillsData from "../data/skills.json";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const Skills: FC = () => {
   const [inView, setInView] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-
     const currentSection = sectionRef.current;
 
     const observer = new IntersectionObserver(
@@ -51,7 +44,6 @@ const Skills: FC = () => {
           {skillsData.map((skill) => (
             <div
               key={skill.id}
-              data-aos="flip-down"
               className="group relative flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg transition-transform transform hover:scale-105"
             >
               <div className="relative h-24 w-24 mb-4">

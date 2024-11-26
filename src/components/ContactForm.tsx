@@ -1,10 +1,6 @@
-"use client";
-import React, { useEffect } from "react";
 import contactData from "@/src/data/contact.json";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const icons: Record<string, React.ElementType> = {
   FaMapMarkerAlt: FaMapMarkerAlt,
@@ -13,10 +9,6 @@ const icons: Record<string, React.ElementType> = {
 };
 
 const ContactForm = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
-
   return (
     <section
       id="contact"
@@ -33,7 +25,6 @@ const ContactForm = () => {
               return (
                 <div
                   key={index}
-                  data-aos="fade-up"
                   className="flex items-center space-x-4 bg-gray-800 p-4 rounded-lg shadow-lg hover:shadow-xl transition"
                 >
                   {IconComponent && (
@@ -46,7 +37,6 @@ const ContactForm = () => {
           </div>
 
           <form
-            data-aos="fade-up"
             className="bg-gray-800 p-10 rounded-lg shadow-lg space-y-8"
             method="POST"
           >
