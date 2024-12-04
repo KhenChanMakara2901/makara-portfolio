@@ -8,9 +8,9 @@ import LinkedIn from "@/public/icon/Linkin.png";
 import CountUp from "react-countup";
 
 const facts = [
-  { count: 4, label: "Graduated 🎓", duration: 4, suffix: "Years" },
-  { count: 20, label: "Projects", duration: 2, suffix: "+" },
-  { count: 90, label: "Satisfaction", duration: 2, suffix: "%" },
+  { count: 4, label: "Graduated 🎓", duration: 8, suffix: " Years" },
+  { count: 20, label: "Projects", duration: 6, suffix: "+" },
+  { count: 90, label: "Satisfaction", duration: 6, suffix: "%" },
 ];
 
 const socialMediaIcons = [
@@ -50,6 +50,7 @@ export default function HeroSection() {
                       start={0}
                       end={fact.count}
                       duration={fact.duration}
+                      delay={0.5} // Adding a delay for a smoother start
                     />
                     {fact.suffix}
                   </h3>
@@ -62,16 +63,16 @@ export default function HeroSection() {
           </div>
 
           {/* Right Content: Picture */}
-          <div className="relative group">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500 to-teal-400 opacity-50 blur-lg group-hover:blur-xl group-hover:opacity-70 transition-all duration-300"></div>
-            <div className="relative rounded-full p-2 bg-gradient-to-r from-indigo-500 to-teal-400 shadow-2xl transform transition-transform duration-300 hover:scale-105">
-              <div className="rounded-full bg-white dark:bg-gray-800 p-1 shadow-xl">
+          <div className="relative group flex justify-center items-center">
+            <div className="absolute inset-0 w-72 h-72 sm:w-96 sm:h-96 lg:w-[22rem] lg:h-[22rem] rounded-full bg-gradient-to-r from-blue-500 to-teal-400 blur-2xl opacity-50 group-hover:blur-3xl group-hover:opacity-75 transition-all duration-500"></div>
+            <div className="relative z-10 rounded-full p-1 bg-gradient-to-r from-indigo-500 to-teal-400 shadow-xl transform group-hover:scale-110 transition-all duration-300">
+              <div className="rounded-full overflow-hidden bg-white dark:bg-gray-800 p-2 shadow-lg">
                 <Image
                   src={Picture}
-                  width={350}
-                  height={350}
+                  width={400}
+                  height={400}
                   alt="Web Developer"
-                  className="rounded-full shadow-2xl transition-transform duration-300 ease-in-out hover:scale-110"
+                  className="rounded-full transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3"
                   quality={100}
                   priority
                 />

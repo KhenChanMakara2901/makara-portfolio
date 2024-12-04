@@ -124,15 +124,19 @@ const Navigation = () => {
             </Link>
           </li>
         </ul>
-
-        {/* Dark Mode and Mobile Menu Toggle */}
         <div className="flex items-center space-x-4">
           <button
             onClick={toggleDarkMode}
-            className="text-xl text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors"
+            className="text-xl text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-transform duration-300 ease-in-out hover:scale-125"
             aria-label={`Switch to ${isDarkMode ? "light" : "dark"} mode`}
           >
-            {isDarkMode ? <FaSun /> : <FaMoon />}
+            <div className="relative">
+              {isDarkMode ? (
+                <FaSun className="transition-opacity duration-500 opacity-100 scale-110" />
+              ) : (
+                <FaMoon className="transition-opacity duration-500 opacity-100 scale-90" />
+              )}
+            </div>
           </button>
           <button
             onClick={toggleMobileMenu}

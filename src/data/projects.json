@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "KhmerCodeAcademy",
-      "description": "I Create Project Khmer Code Academy Education Focus User interface and User Friendly.",
+      "description": "Developed the Khmer Code Academy website focusing on an intuitive user interface and user-friendly design.",
       "githubLink": "https://github.com/user/project-one",
       "liveLink": "https://project-one.example.com",
       "completion": 100,
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "title": "Plan B Burger Ecommerce",
-      "description": "24 OCT Create Food Ecommerce Website With Modern UI Focus On User Interface And Animation.",
+      "description": "Created a food e-commerce website with a modern UI, emphasizing user interface design and engaging animations.",
       "githubLink": "https://github.com/user/project-two",
       "liveLink": "https://project-two.example.com",
       "completion": 100,
@@ -27,7 +27,7 @@
     {
       "id": 3,
       "title": "Ecommerce Food Website",
-      "description": "30 NOV Create Static Food Website Focus On User Order And PopUp Form With Modern UI and Smooth Behavoir",
+      "description": "Developed a static food website focusing on user orders and a modern UI with smooth pop-up form interactions.",
       "githubLink": "https://github.com/user/project-three",
       "liveLink": "https://project-three.example.com",
       "completion": 50,
@@ -36,7 +36,7 @@
     {
       "id": 4,
       "title": "Shopping Ecommerce Website",
-      "description": "15 OCT TO 30 OCT Create Shopping Website With Dynamic Data Focus On User Interface and User Friendly",
+      "description": "Built a shopping website with dynamic data, prioritizing a user-friendly interface and seamless user experience.",
       "githubLink": "https://github.com/user/project-three",
       "liveLink": "https://project-three.example.com",
       "completion": 75,
@@ -45,7 +45,7 @@
     {
       "id": 5,
       "title": "Ecommerce Website",
-      "description": "Create Ecommerce Website With Fake Store API Focus On User Interface And User Friendly.",
+      "description": "Created an e-commerce website integrated with the Fake Store API, focusing on a user-friendly interface and experience.",
       "githubLink": "https://github.com/user/project-three",
       "liveLink": "https://project-three.example.com",
       "completion": 70,
@@ -54,16 +54,16 @@
     {
       "id": 6,
       "title": "KhmerCodeAcademy",
-      "description": "I Rewrite Website KhmerCodeAcademy Focus On Student Register Course And Class With Modern UI And User Friendly Smooth Navigation. .",
+      "description": "Rewrote the Khmer Code Academy website with a focus on course registration, class scheduling, and a modern, smooth, and user-friendly interface.",
       "githubLink": "https://github.com/user/project-three",
       "liveLink": "https://project-three.example.com",
       "completion": 100,
-      "technologies": ["NEXT.JS", "NEXT.JS", "JAVASCRIPT", "TAILWIND CSS"]
+      "technologies": ["NEXT.JS", "JAVASCRIPT", "TAILWIND CSS"]
     },
     {
-      "id": 6,
+      "id": 7,
       "title": "Calculator",
-      "description": "Complete Project Calculalor With Logic All button And Modern UI.",
+      "description": "Completed a calculator project with full functionality for all buttons, featuring modern UI design.",
       "githubLink": "https://github.com/user/project-three",
       "liveLink": "https://project-three.example.com",
       "completion": 100,
