@@ -12,10 +12,10 @@ const ContactForm = () => {
   return (
     <section
       id="contact"
-      className="bg-white dark:bg-dark text-white py-28 px-6 lg:px-24"
+      className="bg-white dark:bg-dark text-white py-16 lg:py-28 px-6 lg:px-24"
     >
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
           CONNECT WITH ME
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -25,23 +25,29 @@ const ContactForm = () => {
               return (
                 <div
                   key={index}
-                  className="flex items-center space-x-4 bg-gray-800 p-4 rounded-lg shadow-lg hover:shadow-xl transition"
+                  className="flex items-center space-x-4 bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition-all ease-in-out duration-300"
                 >
                   {IconComponent && (
-                    <IconComponent className="text-3xl text-green-400" />
+                    <IconComponent className="text-3xl sm:text-4xl text-green-400" />
                   )}
-                  <p className="text-lg font-medium">{item.value}</p>
+                  <p className="text-lg sm:text-xl font-medium text-gray-200">
+                    {item.value}
+                  </p>
                 </div>
               );
             })}
           </div>
 
+          {/* Contact Form */}
           <form
-            className="bg-gray-800 p-10 rounded-lg shadow-lg space-y-8"
+            className="bg-gray-800 p-8 rounded-lg shadow-xl space-y-8"
             method="POST"
           >
             <div className="flex flex-col">
-              <label htmlFor="name" className="text-sm font-semibold mb-2">
+              <label
+                htmlFor="name"
+                className="text-sm sm:text-base font-semibold mb-2"
+              >
                 Full Name
               </label>
               <input
@@ -49,13 +55,16 @@ const ContactForm = () => {
                 id="name"
                 name="name"
                 placeholder="Your Full Name"
-                className="px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all ease-in-out duration-300"
                 required
               />
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="email" className="text-sm font-semibold mb-2">
+              <label
+                htmlFor="email"
+                className="text-sm sm:text-base font-semibold mb-2"
+              >
                 Email Address
               </label>
               <input
@@ -63,13 +72,16 @@ const ContactForm = () => {
                 id="email"
                 name="email"
                 placeholder="Your Email Address"
-                className="px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all ease-in-out duration-300"
                 required
               />
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="subject" className="text-sm font-semibold mb-2">
+              <label
+                htmlFor="subject"
+                className="text-sm sm:text-base font-semibold mb-2"
+              >
                 Subject
               </label>
               <input
@@ -77,13 +89,16 @@ const ContactForm = () => {
                 id="subject"
                 name="subject"
                 placeholder="Your Subject"
-                className="px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all ease-in-out duration-300"
                 required
               />
             </div>
 
             <div className="flex flex-col">
-              <label htmlFor="message" className="text-sm font-semibold mb-2">
+              <label
+                htmlFor="message"
+                className="text-sm sm:text-base font-semibold mb-2"
+              >
                 Message
               </label>
               <textarea
@@ -91,7 +106,7 @@ const ContactForm = () => {
                 name="message"
                 placeholder="Your Message"
                 rows={5}
-                className="px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="px-4 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all ease-in-out duration-300"
                 required
               ></textarea>
             </div>

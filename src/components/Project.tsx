@@ -63,38 +63,39 @@ const ProjectSection = () => {
     setShowPopup(true);
     setTimeout(() => {
       setShowPopup(false);
-    }, 3000); // Hide popup after 3 seconds
+    }, 3000);
   };
 
   return (
     <section
       id="projects"
-      className="bg-white dark:bg-dark text-gray-900 dark:text-white py-28 px-6 lg:px-16"
+      className="bg-white dark:bg-dark text-white py-20 px-6 lg:px-16"
       ref={sectionRef}
     >
-      <h2 className="text-4xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
-        🎉 EXPERIENCE 🎉
+      <h2 className="text-4xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+        🚀 MY PROJECTS 🚀
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-        {visibleProjects.map((project) => (
+        {visibleProjects.map((project, index) => (
           <div
-            key={`${project.id}-${project.title}`}
-            className="relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-xl hover:shadow-2xl border-2 border-transparent hover:border-teal-500 transition duration-300"
+            key={`${project.id}-${index}`}
+            className="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl border border-gray-700 hover:border-purple-500 transition-transform transform hover:-translate-y-3"
           >
             <div className="p-6">
-              <h3 className="text-3xl font-serif mb-4">{project.title}</h3>
-              <p className="mb-4 text-sm">{project.description}</p>
+              <h3 className="text-2xl font-bold text-purple-400 mb-4">
+                {project.title}
+              </h3>
+              <p className="text-gray-300 mb-4">{project.description}</p>
 
-              {/* Border Divider */}
-              <div className="my-4 border-t-2 border-teal-300"></div>
+              <div className="my-4 border-t border-gray-600"></div>
 
               <div className="mb-6">
-                <h4 className="text-lg font-serif mb-2">Technologies:</h4>
+                <h4 className="text-lg text-gray-400 mb-2">Technologies:</h4>
                 <ul className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, index) => (
+                  {project.technologies.map((tech, techIndex) => (
                     <li
-                      key={index}
-                      className="bg-gradient-to-r from-teal-500 to-teal-300 text-sm text-gray-800 px-3 py-1 rounded-full shadow-lg transform transition duration-300 hover:scale-105"
+                      key={`${tech}-${techIndex}`}
+                      className="bg-gradient-to-r from-purple-500 to-indigo-500 text-xs text-gray-900 px-3 py-1 rounded-full shadow-md hover:shadow-lg transform transition hover:scale-110"
                     >
                       {tech}
                     </li>
@@ -102,14 +103,13 @@ const ProjectSection = () => {
                 </ul>
               </div>
 
-              {/* Border Divider */}
-              <div className="my-4 border-t-2 border-teal-300"></div>
+              <div className="my-4 border-t border-gray-600"></div>
 
               <div className="mb-4">
-                <h4 className="text-lg font-serif mb-2">Completion:</h4>
+                <h4 className="text-lg text-gray-400 mb-2">Completion:</h4>
                 <div className="w-full bg-gray-700 rounded-full">
                   <div
-                    className="bg-teal-500 text-xs font-medium text-teal-100 text-center p-1 leading-none rounded-full"
+                    className="bg-gradient-to-r from-green-400 to-teal-400 text-xs font-medium text-gray-900 text-center p-1 leading-none rounded-full"
                     style={{
                       width: `${completed[String(project.id)] || 0}%`,
                     }}
@@ -119,19 +119,21 @@ const ProjectSection = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between mt-4">
+              <div className="flex justify-between items-center mt-4">
                 <Link
                   href={project.githubLink}
-                  className="bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-lg transition duration-300 transform hover:scale-105"
+                  className="bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg flex items-center gap-2 transition-transform transform hover:scale-105"
                   target="_blank"
                 >
-                  <FaGithub className="mr-2" />
+                  <FaGithub />
+                  GitHub
                 </Link>
                 <button
                   onClick={handleLiveLinkClick}
-                  className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition duration-300 transform hover:scale-105"
+                  className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg flex items-center gap-2 transition-transform transform hover:scale-105"
                 >
-                  <FaExternalLinkAlt className="mr-2" />
+                  <FaExternalLinkAlt />
+                  Live
                 </button>
               </div>
             </div>
@@ -141,19 +143,19 @@ const ProjectSection = () => {
       <div className="text-center mt-8">
         <button
           onClick={toggleProjects}
-          className="bg-teal-500 hover:bg-teal-600 text-white py-2 px-6 rounded-lg transition duration-300 transform hover:scale-105"
+          className="bg-teal-500 hover:bg-teal-600 text-white py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:scale-105"
         >
           {showAllProjects ? "Show Less" : "See More"}
         </button>
       </div>
       {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="text-white rounded-lg  transform transition-all duration-300 scale-95 opacity-0 animate-popup">
-            <h3 className="text-2xl font-semibold mb-4 text-center">
-              Oh No No 😱 😱
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50 transition-opacity duration-300 ease-in-out">
+          <div className="bg-gray-900 text-white p-10 rounded-3xl shadow-2xl transform scale-95 transition-transform duration-300 ease-in-out hover:scale-100">
+            <h3 className="text-2xl sm:text-3xl font-semibold mb-6 text-center text-red-500 tracking-wide">
+              😱 Private Content!
             </h3>
-            <p className="text-5xl text-center">
-              Sorry For Preview Content Because Content Is Private.
+            <p className="text-center text-lg sm:text-xl text-gray-300 mb-8">
+              Sorry, this project is private and cannot be previewed.
             </p>
           </div>
         </div>

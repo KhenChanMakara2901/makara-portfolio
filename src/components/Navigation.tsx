@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaGithub, FaSun, FaMoon } from "react-icons/fa";
@@ -13,26 +14,24 @@ const Navigation = () => {
   const [activeId, setActiveId] = useState("");
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-
-  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+  const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark");
-    }
+    setIsDarkMode(savedTheme === "dark");
   }, []);
 
   useEffect(() => {
-    document.body.classList.toggle("dark", isDarkMode);
+    const root = document.documentElement;
+    root.classList.toggle("dark", isDarkMode);
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
 
   const handleScroll = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
-    const element = document.getElementById(href.replace("#", ""));
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    const target = document.getElementById(href.replace("#", ""));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
       setIsMobileMenuOpen(false);
     }
   };
@@ -41,12 +40,10 @@ const Navigation = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
+          if (entry.isIntersecting) setActiveId(entry.target.id);
         });
       },
-      { root: null, rootMargin: "0px", threshold: 0.5 }
+      { threshold: 0.7 }
     );
 
     const sections = document.querySelectorAll("section[id]");
@@ -58,21 +55,22 @@ const Navigation = () => {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white dark:bg-dark shadow-lg">
+    <nav className="fixed w-full top-0 z-50 bg-white dark:bg-gray-900 shadow-lg">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
-          <Link href="/" className="hover:scale-110">
-            <Image
-              className="hover:scale-110"
-              src={Logo}
-              width={50}
-              height={50}
-              quality={100}
-              alt="Logo"
-            />
-          </Link>
-        </div>
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <Image
+            src={Logo}
+            alt="Logo"
+            width={50}
+            height={50}
+            priority
+            quality={100}
+            className="hover:scale-110 transition-transform"
+          />
+        </Link>
 
+        {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6 items-center">
           {navigation.map((item) => (
             <li key={item.id}>
@@ -102,7 +100,7 @@ const Navigation = () => {
               )}
             </li>
           ))}
-
+          {/* GitHub Link */}
           <li>
             <Link
               href="https://github.com/KhenChanMakara2901"
@@ -114,7 +112,7 @@ const Navigation = () => {
               <span>GitHub</span>
             </Link>
           </li>
-
+          {/* Vercel Link */}
           <li>
             <Link
               href="https://vercel.com"
@@ -128,19 +126,20 @@ const Navigation = () => {
           </li>
         </ul>
 
-        <div className="flex space-x-4 items-center">
+        {/* Dark Mode and Mobile Menu Toggle */}
+        <div className="flex items-center space-x-4">
           <button
             onClick={toggleDarkMode}
             className="text-xl text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors"
-            aria-label="Toggle Dark Mode"
+            aria-label={`Switch to ${isDarkMode ? "light" : "dark"} mode`}
           >
             {isDarkMode ? <FaSun /> : <FaMoon />}
           </button>
-
           <button
             onClick={toggleMobileMenu}
             className="md:hidden text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white focus:outline-none"
             aria-label="Toggle Mobile Menu"
+            aria-expanded={isMobileMenuOpen}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -164,8 +163,9 @@ const Navigation = () => {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-white dark:bg-dark overflow-hidden transition-all ${
+        className={`md:hidden transition-height duration-300 ease-in-out overflow-hidden ${
           isMobileMenuOpen ? "max-h-screen" : "max-h-0"
         }`}
       >
@@ -198,7 +198,7 @@ const Navigation = () => {
               )}
             </li>
           ))}
-
+          {/* GitHub and Vercel Links */}
           <li>
             <Link
               href="https://github.com/KhenChanMakara2901"
@@ -210,7 +210,6 @@ const Navigation = () => {
               <span>GitHub</span>
             </Link>
           </li>
-
           <li>
             <Link
               href="https://vercel.com"
