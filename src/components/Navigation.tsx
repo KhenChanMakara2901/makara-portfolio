@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { FaGithub, FaSun, FaMoon } from "react-icons/fa";
+import { FaGithub, FaCloudMoon } from "react-icons/fa";
+import { IoIosPartlySunny } from "react-icons/io";
 import { SiVercel } from "react-icons/si";
 import navigation from "@/navigation.json";
 import Logo from "@/public/Logo.png";
@@ -132,9 +133,15 @@ const Navigation = () => {
           >
             <div className="relative">
               {isDarkMode ? (
-                <FaSun className="transition-opacity duration-500 opacity-100 scale-110" />
+                <IoIosPartlySunny
+                  size={30}
+                  className="transition-opacity duration-500 opacity-100 scale-110"
+                />
               ) : (
-                <FaMoon className="transition-opacity duration-500 opacity-100 scale-90" />
+                <FaCloudMoon
+                  size={35}
+                  className="transition-opacity duration-500 opacity-100 scale-90"
+                />
               )}
             </div>
           </button>
