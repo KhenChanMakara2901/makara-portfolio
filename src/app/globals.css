@@ -1,14 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer utilities {
+  /* Enable smooth scrolling across the entire document */
   html {
     scroll-behavior: smooth;
   }
+
+  /* Text balance is not fully supported in all browsers, so adjust accordingly */
   .text-balance {
-    text-wrap: balance;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 }
+
+/* Slow spin animation for smooth rotation */
 @keyframes slow-spin {
   0% {
     transform: rotate(0deg);
@@ -21,6 +28,8 @@
 .slow-spin {
   animation: slow-spin 5s linear infinite;
 }
+
+/* Popup animation for smooth scale and opacity transition */
 @keyframes popup {
   0% {
     opacity: 0;
@@ -39,16 +48,21 @@
 .animate-popup {
   animation: popup 0.4s ease-out forwards;
 }
+
+/* Page transition fade-in effect */
 .page-enter {
   opacity: 0;
 }
+
 .page-enter-active {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+
 .page-exit {
   opacity: 1;
 }
+
 .page-exit-active {
   opacity: 0;
   transition: opacity 0.5s ease;

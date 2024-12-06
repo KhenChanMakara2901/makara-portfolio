@@ -21,12 +21,19 @@ const socialMediaIcons = [
 
 export default function HeroSection() {
   return (
-    <section id="Home" className="relative bg-white dark:bg-dark py-24 mt-10">
+    <section
+      id="Home"
+      className="relative bg-white dark:bg-dark py-24 mt-10"
+      aria-labelledby="hero-title"
+    >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center lg:justify-between gap-12">
           {/* Left Content */}
           <div className="text-center lg:text-left max-w-lg">
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500 leading-tight mb-4">
+            <h1
+              id="hero-title"
+              className="text-5xl sm:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500 leading-tight mb-4"
+            >
               KHEN CHANNMAKARA
             </h1>
             <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-6">
@@ -50,7 +57,7 @@ export default function HeroSection() {
                       start={0}
                       end={fact.count}
                       duration={fact.duration}
-                      delay={0.5} // Adding a delay for a smoother start
+                      delay={0.5}
                     />
                     {fact.suffix}
                   </h3>

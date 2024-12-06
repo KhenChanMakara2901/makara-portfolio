@@ -11,7 +11,7 @@ export default {
     extend: {
       colors: {
         dark: {
-          DEFAULT: "#15202b", // Replace with your preferred dark color
+          DEFAULT: "#15202b",
         },
       },
     },

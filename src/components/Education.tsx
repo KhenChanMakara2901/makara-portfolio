@@ -13,42 +13,44 @@ const Education = () => {
         </h2>
 
         {/* Education Grid */}
-        <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
+        <div className="grid gap-10 sm:grid-cols-1 lg:grid-cols-2">
           {education.map((item) => (
             <div
               key={item.id}
-              className="relative bg-gray-100 dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="relative bg-gray-100 dark:bg-gray-800 rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               {/* Institution Logo */}
-              <div className="absolute top-0 left-6 transform -translate-y-1/2">
-                <div className="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center shadow-md">
+              <div className="absolute top-0 left-8 transform -translate-y-1/2">
+                <div className="w-20 h-20 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center shadow-lg">
                   <Image
                     src={item.logo}
                     alt={`${item.institution} logo`}
-                    width={50}
-                    height={50}
+                    width={60}
+                    height={60}
                     className="rounded-full"
                   />
                 </div>
               </div>
 
               {/* Education Details */}
-              <div className="mt-10">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-1">
+              <div className="mt-12">
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">
                   {item.title}
                 </h3>
-                <p className="text-sm text-blue-500">{item.institution}</p>
+                <p className="text-base text-blue-500 font-medium">
+                  {item.institution}
+                </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   {item.date}
                 </p>
               </div>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-4">
+              <div className="flex flex-wrap gap-3 mt-6">
                 {item.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="inline-block px-3 py-1 text-sm font-medium bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-full"
+                    className="px-3 py-1 text-sm font-medium bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-full"
                   >
                     {tag}
                   </span>

@@ -3,12 +3,16 @@ import { useEffect, useState } from "react";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+
+  // Smooth scroll function
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
+
+  // Show/hide the button based on scroll position
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
@@ -17,8 +21,8 @@ export default function ScrollToTop() {
         setIsVisible(false);
       }
     };
-    window.addEventListener("scroll", toggleVisibility);
 
+    window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
@@ -27,10 +31,10 @@ export default function ScrollToTop() {
       {isVisible && (
         <div
           onClick={scrollToTop}
-          aria-label="scroll to top"
-          className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-teal-400 text-white shadow-lg transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-2xl"
+          aria-label="Scroll to top"
+          className="flex items-center justify-center w-14 h-14 cursor-pointer rounded-full bg-gradient-to-r from-indigo-500 to-teal-400 text-white shadow-lg transform transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-2xl"
         >
-          <span className="h-3 w-3 border-t-2 border-l-2 border-white rotate-45"></span>
+          <span className="w-3 h-3 border-t-2 border-l-2 border-white rotate-45"></span>
         </div>
       )}
     </div>
