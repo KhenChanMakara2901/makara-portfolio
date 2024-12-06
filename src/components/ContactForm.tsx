@@ -50,7 +50,8 @@ const ContactForm = () => {
     }, 2000);
   };
 
-  const iconMap = {
+  // Explicitly define the valid keys for the iconMap object
+  const iconMap: { [key: string]: JSX.Element } = {
     FaMapMarkerAlt: <FaMapMarkerAlt />,
     AiOutlineMail: <AiOutlineMail />,
     AiOutlinePhone: <AiOutlinePhone />,
@@ -74,7 +75,8 @@ const ContactForm = () => {
                 className="flex items-center space-x-4 bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all ease-in-out duration-300"
               >
                 <div className="text-3xl sm:text-4xl text-green-400">
-                  {iconMap[item.icon] || null}
+                  {/* Type assert the icon key */}
+                  {iconMap[item.icon as keyof typeof iconMap] || null}
                 </div>
                 <p className="text-lg sm:text-xl font-medium">{item.value}</p>
               </div>
