@@ -1,14 +1,28 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
-const ContactForm = dynamic(() => import("../components/ContactForm"));
-const Education = dynamic(() => import("../components/Education"));
-const Effect = dynamic(() => import("../components/Effect"));
-const HeroSections = dynamic(() => import("../components/HeroSections"));
-const ProjectSection = dynamic(() => import("../components/Project"));
-const Skills = dynamic(() => import("../components/Skills"));
-const ScrollToTop = dynamic(() => import("../components/ScrollToTop"));
+const ContactForm = dynamic(() => import("../components/ContactForm"), {
+  loading: () => <p>Loading...</p>,
+});
+const Education = dynamic(() => import("../components/Education"), {
+  loading: () => <p>Loading...</p>,
+});
+const Effect = dynamic(() => import("../components/Effect"), {
+  loading: () => <p>Loading...</p>,
+});
+const HeroSections = dynamic(() => import("../components/HeroSections"), {
+  loading: () => <p>Loading...</p>,
+});
+const ProjectSection = dynamic(() => import("../components/Project"), {
+  loading: () => <p>Loading...</p>,
+});
+const Skills = dynamic(() => import("../components/Skills"), {
+  loading: () => <p>Loading...</p>,
+});
+const ScrollToTop = dynamic(() => import("../components/ScrollToTop"), {
+  loading: () => <p>Loading...</p>,
+});
 
-export default function Home() {
+export default function Page() {
   return (
     <main>
       <Head>
