@@ -6,6 +6,7 @@ import Facebook from "@/public/icon/Facebook.png";
 import Telegram from "@/public/icon/Telegram.png";
 import LinkedIn from "@/public/icon/Linkin.png";
 import CountUp from "react-countup";
+import { useEffect, useRef, useState } from "react";
 
 const facts = [
   { count: 4, label: "Graduated 🎓", duration: 8, suffix: " Years" },
@@ -20,14 +21,37 @@ const socialMediaIcons = [
 ];
 
 export default function HeroSection() {
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
   return (
     <section
       id="Home"
+      ref={sectionRef}
       className="relative bg-white dark:bg-dark py-24 mt-10"
       aria-labelledby="hero-title"
     >
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row items-center lg:justify-between gap-12">
+        <div
+          className={`flex flex-col lg:flex-row items-center lg:justify-between gap-12 transition-all duration-1000 ease-in-out ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           {/* Left Content */}
           <div className="text-center lg:text-left max-w-lg">
             <h1
@@ -51,7 +75,14 @@ export default function HeroSection() {
             {/* Facts */}
             <div className="mt-8 flex justify-center lg:justify-start gap-8">
               {facts.map((fact, index) => (
-                <div className="text-center" key={index}>
+                <div
+                  className={`text-center transition-all duration-1000 ease-in-out ${
+                    inView
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10"
+                  }`}
+                  key={index}
+                >
                   <h3 className="text-4xl font-bold text-gray-800 dark:text-white">
                     <CountUp
                       start={0}
@@ -89,7 +120,11 @@ export default function HeroSection() {
         </div>
 
         {/* Social Media Section */}
-        <div className="mt-12 text-center lg:text-left">
+        <div
+          className={`mt-12 text-center lg:text-left transition-all duration-1000 ease-in-out ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <h3 className="text-xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
             Social Media:
           </h3>

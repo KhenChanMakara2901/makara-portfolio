@@ -1,7 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+:root {
+  --background-color-light: #ffffff;
+  --text-color-light: #333333;
+  --primary-color-light: #15202b; /* Your chosen color */
+}
+body {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+}
 @layer utilities {
   /* Enable smooth scrolling across the entire document */
   html {
@@ -66,4 +74,39 @@
 .page-exit-active {
   opacity: 0;
   transition: opacity 0.5s ease;
+}
+@keyframes spinOnce {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-once {
+  animation: spinOnce 1s ease-out forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
 }

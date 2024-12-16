@@ -9,6 +9,7 @@ const ProjectSection = () => {
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [progress, setProgress] = useState<{ [key: string]: number }>({});
   const [showPopup, setShowPopup] = useState(false);
+  const [inView, setInView] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
 
   const toggleProjects = () => setShowAllProjects((prev) => !prev);
@@ -40,6 +41,7 @@ const ProjectSection = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            setInView(true);
             projectData.projects.forEach((project) => {
               setProgress((prev) => ({
                 ...prev,
@@ -47,6 +49,8 @@ const ProjectSection = () => {
               }));
               animateProgress(String(project.id), project.completion);
             });
+          } else {
+            setInView(false);
           }
         });
       },
@@ -79,7 +83,11 @@ const ProjectSection = () => {
       </h2>
 
       {/* Project Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div
+        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 transition-all duration-1000 ease-in-out ${
+          inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         {visibleProjects.map((project) => (
           <div
             key={project.id}

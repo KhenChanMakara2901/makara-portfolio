@@ -37,7 +37,11 @@ const Skills: FC = () => {
         </h2>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+        <div
+          className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 transition-all duration-1000 ease-in-out ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           {skillsData.map((skill) => (
             <div
               key={skill.id}
@@ -64,9 +68,9 @@ const Skills: FC = () => {
               <div className="w-full mt-4">
                 <div className="relative w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                   <div
-                    className={`absolute inset-0 transform ${
+                    className={`absolute inset-0 transform transition-transform duration-1000 ease-in-out ${
                       inView ? "scale-x-100" : "scale-x-0"
-                    } transition-transform duration-1000 ease-in-out`}
+                    }`}
                     style={{
                       width: `${skill.proficiency}%`,
                       background: "linear-gradient(to right, #6ee7b7, #3b82f6)",
